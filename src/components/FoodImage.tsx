@@ -17,9 +17,11 @@ export default function FoodImage({ show, className, src, alt = 'img' }: FoodIma
   useEffect(() => {
     setVisible(!!show);
     if (visible) {
-      motion('zoomOverIn', { duration: 350, fill: 'forwards', easing: EASING_FUNCTIONS.easeInOutBack });
+      ref.current.onload = () => {
+        motion('zoomOverIn', { duration: 350, fill: 'forwards', easing: EASING_FUNCTIONS.easeInOutBack });
+      };
     }
-  }, [show, visible, motion]);
+  }, [show, visible, motion, ref]);
 
   return (
     <>
