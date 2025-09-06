@@ -7,7 +7,7 @@ import Image from 'next/image';
 interface FoodImageProps {
   show?: boolean;
   className?: string;
-  src: string;
+  src?: string;
   alt?: string;
 }
 export default function FoodImage({ show, className, src, alt = 'img' }: FoodImageProps) {
@@ -17,20 +17,20 @@ export default function FoodImage({ show, className, src, alt = 'img' }: FoodIma
   useEffect(() => {
     setVisible(!!show);
     if (visible) {
-      motion('zoomOverIn', { duration: 200, fill: 'forwards', easing: EASING_FUNCTIONS.easeInOutBack });
+      motion('zoomOverIn', { duration: 350, fill: 'forwards', easing: EASING_FUNCTIONS.easeInOutBack });
     }
   }, [show, visible, motion]);
 
   return (
     <>
-      {visible ? (
+      {visible && src ? (
         <Image
           src={src}
           ref={ref}
           width={1024}
           height={1024}
           className={cn(
-            'fixed top-20 left-1/2 z-9999 flex size-50 origin-center -translate-x-1/2 md:size-80',
+            'fixed top-20 left-1/2 z-9999 flex size-50 origin-center -translate-x-1/2 md:size-70',
             className,
           )}
           alt={alt}

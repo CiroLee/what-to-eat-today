@@ -1,9 +1,11 @@
 'use client';
+import Image from 'next/image';
 import { useEffect, useState, useRef, useCallback } from 'react';
 import Button from '@/components/Button';
 import { foods, type FoodMeta } from '@/config/food.config';
-import { randomInt } from '@/lib/utils';
+import { cn, randomInt } from '@/lib/utils';
 import FoodImage from '@/components/FoodImage';
+import Link from 'next/link';
 export default function Home() {
   const timer = useRef<ReturnType<typeof setInterval>>(null);
   const [status, setStatus] = useState<'playing' | 'stopped' | 'idle'>('idle');
@@ -39,15 +41,23 @@ export default function Home() {
 
   return (
     <div className="flex h-screen flex-col items-center justify-center">
-      {status === 'idle' ? <p className="mb-10 text-5xl font-bold">今天吃点啥</p> : null}
-      {status !== 'idle' ? (
-        <div className="mb-12 w-[65%] overflow-hidden md:w-50">
-          <FoodImage show={status === 'stopped'} src={food?.imagePath || ''} alt={food?.cname} />
-          <p className="text-center text-3xl font-bold md:text-2xl">{food?.cname}</p>
-        </div>
-      ) : null}
+      <Link
+        href="https://github.com/CiroLee/what-to-eat-today"
+        className="fixed top-4 right-4 z-10 size-6 rounded"
+        target="_blank"
+        rel="noopener noreferrer">
+        <Image src="/icons/github.svg" width={256} height={256} className="size-full" alt="github" />
+      </Link>
+      {status === 'idle' ? <p className="absolute top-[36%] text-5xl font-bold">今天吃点啥</p> : null}
+      <FoodImage show={status === 'stopped'} src={food?.imagePath} alt={food?.cname} />
+      <p
+        className={cn('mb-12 h-9 text-center text-3xl font-semibold opacity-0', {
+          'opacity-100': status !== 'idle',
+        })}>
+        {food?.cname}
+      </p>
       <Button className="w-30 text-lg" onClick={handleBtnClick}>
-        {status === 'stopped' ? '开始' : '就它了！'}
+        {status === 'playing' ? '就它了！' : '挑一个'}
       </Button>
     </div>
   );

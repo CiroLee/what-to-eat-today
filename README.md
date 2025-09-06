@@ -1,1 +1,7 @@
-# nextjs+typescript+tailwindcss template
+# 今天吃点啥
+
+![cover](/image/cover.webp)
+
+选择困难症的福音？治愈的绘本风格？点一下就知道了！
+
+**note**: 该项目仅供娱乐，请合理安排饮食
