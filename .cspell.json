@@ -1,0 +1,4 @@
+{
+  "ignorePaths": [".git", "node_modules", "dist", "./src/config/food.config.ts"],
+  "ignoreWords": ["cirolee"]
+}

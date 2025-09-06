@@ -1,0 +1,12 @@
+@import 'tailwindcss';
+@import 'tailwindcss-colors-palette/colors/radix-light.css';
+
+@theme {
+  --font-ma-shan-zheng: var(--font-ma-shan-zheng);
+}
+
+@layer base {
+  body {
+    @apply bg-ra-amber-2 font-ma-shan-zheng;
+  }
+}
