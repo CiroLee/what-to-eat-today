@@ -29,10 +29,8 @@ export default function Home() {
     } else {
       timer.current && clearInterval(timer.current);
       setStatus('stopped');
-
-      console.log(food);
     }
-  }, [status, timer, food, start]);
+  }, [status, timer, start]);
 
   useEffect(() => {
     // random init
@@ -40,7 +38,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex h-screen flex-col items-center justify-center">
+    <div className="flex h-dvh flex-col items-center justify-center">
       <Link
         href="https://github.com/CiroLee/what-to-eat-today"
         className="fixed top-4 right-4 z-10 size-6 rounded"
@@ -51,7 +49,7 @@ export default function Home() {
       {status === 'idle' ? <p className="absolute top-[36%] text-5xl font-bold">今天吃点啥</p> : null}
       <FoodImage show={status === 'stopped'} src={food?.imagePath} alt={food?.cname} />
       <p
-        className={cn('mb-12 h-9 text-center text-3xl font-semibold opacity-0', {
+        className={cn('mb-8 h-9 text-center text-3xl font-semibold opacity-0 md:mb-12', {
           'opacity-100': status !== 'idle',
         })}>
         {food?.cname}
