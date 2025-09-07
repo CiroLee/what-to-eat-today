@@ -10,7 +10,7 @@ export function randomInt(start: number, end: number) {
 
 // 根据日期获取唯一索引
 export function getDateIndex(date: Date, length: number) {
-  const normalizedDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  const normalizedDate = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
 
   // 哈希计算
   let hash = normalizedDate.getTime();
