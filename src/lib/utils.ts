@@ -20,6 +20,6 @@ export function getDateIndex(date: Date, length: number) {
   hash = hash ^ (hash >>> 4);
   hash = (hash * 2057) ^ (hash >>> 16);
 
-  // 扩展范围 [0,length]
-  return Math.abs(hash) % (length + 1);
+  // 扩展范围 [0,length - 1]
+  return Math.abs(hash) % length;
 }
