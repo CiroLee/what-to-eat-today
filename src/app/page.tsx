@@ -70,7 +70,7 @@ export default function Home() {
       </Link>
       {status === 'idle' ? <p className="absolute top-[34%] text-5xl font-bold">今天吃点啥</p> : null}
       <FoodImage show={status === 'stopped'} src={food?.imagePath} alt={food?.cname} />
-      <div className="fixed top-1/2 left-1/2 flex w-80 -translate-1/2 flex-col items-center">
+      <div className="fixed top-1/2 left-1/2 flex w-80 -translate-x-1/2 -translate-y-1/4 flex-col items-center">
         <p
           className={cn('mb-8 h-9 text-center text-3xl font-semibold opacity-0 md:mb-12', {
             'opacity-100': status !== 'idle',
