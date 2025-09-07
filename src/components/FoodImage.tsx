@@ -31,7 +31,7 @@ export default function FoodImage({ show, className, src, alt = 'img' }: FoodIma
           ref={ref}
           width={1024}
           height={1024}
-          className={cn('fixed top-14 left-1/2 z-20 size-60 origin-center -translate-x-1/2 md:top-[16%]', className)}
+          className={cn('fixed top-11 left-1/2 z-20 size-60 origin-center -translate-x-1/2 md:top-30', className)}
           alt={alt}
         />
       ) : null}

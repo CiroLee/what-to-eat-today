@@ -165,4 +165,94 @@ export const foods: FoodMeta[] = [
     imagePath: '/images/food/xihucuyu.webp',
     cname: '西湖醋鱼',
   },
+  {
+    id: 'banshuzhishi',
+    imagePath: '/images/food/banshuzhishi.webp',
+    cname: '半熟芝士',
+  },
+  {
+    id: 'chaoxianlengmian',
+    imagePath: '/images/food/chaoxianlengmian.webp',
+    cname: '朝鲜冷面',
+  },
+  {
+    id: 'chuanchuanxiang',
+    imagePath: '/images/food/chuanchuanxiang.webp',
+    cname: '串串香',
+  },
+  {
+    id: 'ganchaoniuhe',
+    imagePath: '/images/food/ganchaoniuhe.webp',
+    cname: '干炒牛河',
+  },
+  {
+    id: 'guandongzhu',
+    imagePath: '/images/food/guandongzhu.webp',
+    cname: '关东煮',
+  },
+  {
+    id: 'huiguorou',
+    imagePath: '/images/food/huiguorou.webp',
+    cname: '回锅肉',
+  },
+  {
+    id: 'huntun',
+    imagePath: '/images/food/huntun.webp',
+    cname: '馄饨',
+  },
+  {
+    id: 'jianbingguozi',
+    imagePath: '/images/food/jianbingguozi.webp',
+    cname: '煎饼果子',
+  },
+  {
+    id: 'laziji',
+    imagePath: '/images/food/laziji.webp',
+    cname: '辣子鸡',
+  },
+  {
+    id: 'makalong',
+    imagePath: '/images/food/makalong.webp',
+    cname: '马卡龙',
+  },
+  {
+    id: 'maoxuewang',
+    imagePath: '/images/food/maoxuewang.webp',
+    cname: '毛血旺',
+  },
+  {
+    id: 'meicaikourou',
+    imagePath: '/images/food/meicaikourou.webp',
+    cname: '梅菜扣肉',
+  },
+  {
+    id: 'shuangpinai',
+    imagePath: '/images/food/shuangpinai.webp',
+    cname: '双皮奶',
+  },
+  {
+    id: 'shufuleisongbing',
+    imagePath: '/images/food/shufuleisongbing.webp',
+    cname: '舒芙蕾松饼',
+  },
+  {
+    id: 'suanrongshenghao',
+    imagePath: '/images/food/suanrongshenghao.webp',
+    cname: '蒜蓉生蚝',
+  },
+  {
+    id: 'tilamisu',
+    imagePath: '/images/food/tilamisu.webp',
+    cname: '提拉米苏',
+  },
+  {
+    id: 'xiaochaohuangniurou',
+    imagePath: '/images/food/xiaochaohuangniurou.webp',
+    cname: '小炒黄牛肉',
+  },
+  {
+    id: 'xihongshichaojidan',
+    imagePath: '/images/food/xihongshichaojidan.webp',
+    cname: '西红柿炒鸡蛋',
+  },
 ];

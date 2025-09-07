@@ -1,15 +1,20 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useMotion } from '@cirolee/tiny-motion';
 import { useEffect, useState, useRef, useCallback } from 'react';
 import Button from '@/components/Button';
 import { foods, type FoodMeta } from '@/config/food.config';
-import { cn, randomInt } from '@/lib/utils';
+import { cn, getDateIndex, randomInt } from '@/lib/utils';
 import FoodImage from '@/components/FoodImage';
-import Link from 'next/link';
+import { fireworkEffect } from '@/lib/effects';
 export default function Home() {
   const timer = useRef<ReturnType<typeof setInterval>>(null);
   const [status, setStatus] = useState<'playing' | 'stopped' | 'idle'>('idle');
   const [food, setFood] = useState<FoodMeta>();
+  // 彩蛋提示
+  const [isEagerEgg, setIsEagerEgg] = useState(false);
+  const [eagerEggRef, motion] = useMotion<HTMLDivElement>();
 
   const getRandomFood = () => {
     const index = randomInt(0, foods.length - 1);
@@ -24,18 +29,35 @@ export default function Home() {
   }, []);
 
   const handleBtnClick = useCallback(() => {
+    if (isEagerEgg) {
+      setIsEagerEgg(false);
+    }
     if (status !== 'playing') {
       start();
     } else {
       timer.current && clearInterval(timer.current);
       setStatus('stopped');
     }
-  }, [status, timer, start]);
+  }, [status, timer, start, isEagerEgg]);
 
   useEffect(() => {
     // random init
     setFood(getRandomFood());
   }, []);
+
+  // 彩蛋效果
+  useEffect(() => {
+    if (status === 'stopped' && food) {
+      const todayIndx = getDateIndex(new Date(), foods.length);
+      const foodIndex = foods.findIndex((item) => item.id === food.id);
+      //触发彩蛋效果
+      if (todayIndx === foodIndex) {
+        setIsEagerEgg(true);
+        motion('fadeInUp', { duration: 300 });
+        fireworkEffect();
+      }
+    }
+  }, [status, food, motion]);
 
   return (
     <div className="flex h-dvh flex-col items-center justify-center">
@@ -46,17 +68,22 @@ export default function Home() {
         rel="noopener noreferrer">
         <Image src="/icons/github.svg" width={256} height={256} className="size-full" alt="github" />
       </Link>
-      {status === 'idle' ? <p className="absolute top-[36%] text-5xl font-bold">今天吃点啥</p> : null}
+      {status === 'idle' ? <p className="absolute top-[34%] text-5xl font-bold">今天吃点啥</p> : null}
       <FoodImage show={status === 'stopped'} src={food?.imagePath} alt={food?.cname} />
-      <p
-        className={cn('mb-8 h-9 text-center text-3xl font-semibold opacity-0 md:mb-12', {
-          'opacity-100': status !== 'idle',
-        })}>
-        {food?.cname}
-      </p>
-      <Button className="w-30 text-lg" onClick={handleBtnClick}>
-        {status === 'playing' ? '就它了！' : '挑一个'}
-      </Button>
+      <div className="fixed top-1/2 left-1/2 flex w-80 -translate-1/2 flex-col items-center">
+        <p
+          className={cn('mb-8 h-9 text-center text-3xl font-semibold opacity-0 md:mb-12', {
+            'opacity-100': status !== 'idle',
+          })}>
+          {food?.cname}
+        </p>
+        <Button className="w-30 text-lg" onClick={handleBtnClick}>
+          {status === 'playing' ? '就它了！' : '挑一个'}
+        </Button>
+        <div ref={eagerEggRef} className={cn('mt-10 text-lg', { 'opacity-0!': !isEagerEgg })}>
+          太棒了，你挑到了今日推荐菜品！
+        </div>
+      </div>
     </div>
   );
 }
