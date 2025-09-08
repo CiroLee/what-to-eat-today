@@ -63,14 +63,16 @@ export default function Home() {
     <div className="flex h-dvh flex-col items-center justify-center">
       <Link
         href="https://github.com/CiroLee/what-to-eat-today"
-        className="fixed top-4 right-4 z-10 size-6 rounded"
+        className="fixed top-4 right-4 z-10 size-6"
         target="_blank"
         rel="noopener noreferrer">
         <Image src="/icons/github.svg" width={256} height={256} className="size-full" alt="github" />
       </Link>
-      {status === 'idle' ? <p className="absolute top-[34%] text-5xl font-bold">今天吃点啥</p> : null}
-      <FoodImage show={status === 'stopped'} src={food?.imagePath} alt={food?.cname} />
-      <div className="fixed top-1/2 left-1/2 flex w-80 -translate-x-1/2 -translate-y-1/4 flex-col items-center">
+      {status === 'idle' ? <p className="absolute top-[40%] text-5xl font-bold">今天吃点啥</p> : null}
+      <div className="relative -mt-11 size-60">
+        <FoodImage show={status === 'stopped'} className="size-full" src={food?.imagePath} alt={food?.cname} />
+      </div>
+      <div className="flex w-80 flex-col items-center">
         <p
           className={cn('mb-8 h-9 text-center text-3xl font-semibold opacity-0 md:mb-12', {
             'opacity-100': status !== 'idle',
