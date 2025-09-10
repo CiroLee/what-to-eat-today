@@ -387,7 +387,7 @@ export const foods: FoodMeta[] = [
   {
     id: 'shucaishala',
     imagePath: '/images/food/shucaishala.webp',
-    cname: '熟菜沙拉',
+    cname: '蔬菜沙拉',
     quote: '爸妈问我为什么在吃草',
   },
   {
