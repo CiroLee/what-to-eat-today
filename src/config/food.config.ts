@@ -349,8 +349,8 @@ export const foods: FoodMeta[] = [
     text: '长大的标志就是，开始爱吃苦瓜鸡蛋了',
   },
   {
-    id: 'baobeijingsuanyangrou',
-    imagePath: '/images/food/baobeijingsuanyangrou.webp',
+    id: 'laobeijingsuanyangrou',
+    imagePath: '/images/food/laobeijingsuanyangrou.webp',
     cname: '老北京涮羊肉',
     text: '肉片秒过水，比打工人下班还快',
   },
