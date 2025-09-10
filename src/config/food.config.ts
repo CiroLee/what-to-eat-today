@@ -22,12 +22,13 @@ export const foods: FoodMeta[] = [
     id: 'huangmenjimifan',
     imagePath: '/images/food/huangmenjimifan.webp',
     cname: '黄焖鸡米饭',
+    text: '鸡在锅里焖，我在工位熬',
   },
   {
     id: 'luosifen',
     imagePath: '/images/food/luosifen.webp',
     cname: '螺蛳粉',
-    text: '鸡在锅里焖，我在工位熬',
+    text: '嗦粉三分钟，同事失联三小时',
   },
   {
     id: 'malatang',
