@@ -82,7 +82,7 @@ export default function Home() {
         </p>
         <p
           className={cn('mb-8 h-9 text-center text-lg font-semibold opacity-0 md:mb-12', {
-            'opacity-100 transition': status === 'stopped',
+            'opacity-100 transition duration-350 ease-in': status === 'stopped',
           })}>
           {food?.text}
         </p>
