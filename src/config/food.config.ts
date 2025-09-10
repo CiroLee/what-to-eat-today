@@ -303,7 +303,7 @@ export const foods: FoodMeta[] = [
     id: 'xihongshichaojidan',
     imagePath: '/images/food/xihongshichaojidan.webp',
     cname: '西红柿炒鸡蛋',
-    text: '据说这玩意是溥仪方明的？',
+    text: '据说这玩意是溥仪发明的？',
   },
   {
     id: 'ganbiandoujiao',

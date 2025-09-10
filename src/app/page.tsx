@@ -50,7 +50,7 @@ export default function Home() {
     if (status === 'stopped' && food) {
       const todayIndx = getDateIndex(new Date(), foods.length);
       const foodIndex = foods.findIndex((item) => item.id === food.id);
-      console.log(todayIndx, foods[todayIndx]);
+      // console.log(todayIndx, foods[todayIndx]);
       //触发彩蛋效果
       if (todayIndx === foodIndex) {
         setIsEagerEgg(true);
