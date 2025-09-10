@@ -2,7 +2,7 @@ export interface FoodMeta {
   id: string;
   imagePath: string;
   cname: string;
-  text?: string;
+  text: string;
 }
 
 export const foods: FoodMeta[] = [
