@@ -50,6 +50,7 @@ export default function Home() {
     if (status === 'stopped' && food) {
       const todayIndx = getDateIndex(new Date(), foods.length);
       const foodIndex = foods.findIndex((item) => item.id === food.id);
+      console.log(todayIndx, foods[todayIndx]);
       //触发彩蛋效果
       if (todayIndx === foodIndex) {
         setIsEagerEgg(true);
@@ -72,12 +73,18 @@ export default function Home() {
       <div className="relative -mt-11 size-60">
         <FoodImage show={status === 'stopped'} className="size-full" src={food?.imagePath} alt={food?.cname} />
       </div>
-      <div className="flex w-80 flex-col items-center">
+      <div className="flex w-90 flex-col items-center">
         <p
-          className={cn('mb-8 h-9 text-center text-3xl font-semibold opacity-0 md:mb-12', {
+          className={cn('mb-6 h-9 text-center text-3xl font-semibold opacity-0 md:mb-10', {
             'opacity-100': status !== 'idle',
           })}>
           {food?.cname}
+        </p>
+        <p
+          className={cn('mb-8 h-9 text-center text-lg font-semibold opacity-0 md:mb-12', {
+            'opacity-100 transition': status === 'stopped',
+          })}>
+          {food?.text}
         </p>
         <Button className="w-30 text-lg" onClick={handleBtnClick}>
           {status === 'playing' ? '就它了！' : '挑一个'}
