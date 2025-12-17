@@ -80,12 +80,6 @@ export default function Home() {
           })}>
           {food?.cname}
         </p>
-        <p
-          className={cn('mb-8 h-9 text-center text-lg font-semibold text-black/70 opacity-0', {
-            'opacity-100 transition duration-350 ease-in': status === 'stopped',
-          })}>
-          {food?.quote}
-        </p>
         <Button className="w-30 text-lg" onClick={handleBtnClick}>
           {status === 'playing' ? '就它了！' : '挑一个'}
         </Button>
